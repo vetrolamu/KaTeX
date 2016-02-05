@@ -612,7 +612,7 @@ for (i = 0; i < textSymbols.length; i++) {
 }
 
 // All of these are textords in text mode, and mathords in math mode
-var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZабвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
 for (i = 0; i < letters.length; i++) {
     ch = letters.charAt(i);
     defineSymbol(math, main, mathord, ch, ch);

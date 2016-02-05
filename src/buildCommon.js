@@ -39,20 +39,9 @@ var makeSymbol = function(value, style, mode, color, classes) {
         value = symbols[mode][value].replace;
     }
 
-    var metrics = fontMetrics.getCharacterMetrics(value, style);
-
-    var symbolNode;
-    if (metrics) {
-        symbolNode = new domTree.symbolNode(
-            value, metrics.height, metrics.depth, metrics.italic, metrics.skew,
-            classes);
-    } else {
-        // TODO(emily): Figure out a good way to only print this in development
-        typeof console !== "undefined" && console.warn(
-            "No character metrics for '" + value + "' in style '" +
-                style + "'");
-        symbolNode = new domTree.symbolNode(value, 0, 0, 0, 0, classes);
-    }
+    var metrics = fontMetrics.getCharacterMetrics(value, style) || {};
+    var symbolNode = new domTree.symbolNode(
+            value, metrics.height, metrics.depth, metrics.italic, metrics.skew, classes);
 
     if (color) {
         symbolNode.style.color = color;
